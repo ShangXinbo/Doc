@@ -62,7 +62,8 @@ query.select('name occupation');
 
 query.exec(function (err, person) {
   if (err) return handleError(err);
-  console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation) // Space Ghost is a talk show host.
+  console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation) 
 })
 ```
 * References //TODO
+## Validation //TODO
