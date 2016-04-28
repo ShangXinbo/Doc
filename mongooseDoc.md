@@ -20,8 +20,9 @@ console.log(mad.name.first); // Breaking
 console.log(mad.name.last);  // Bad
 
 ```
-* Options of Schema  //TODO
-* SchemaTypes   //TODO
+* Options of Schema  TODO
+* SchemaTypes   TODO
+
 ## Model
 model实质上是schema的一个复制，所以要保证在调用.model()前你在schema上的操作都已经结束了。
 每一个model都有一个与之对应的链接，当你使用mongoose.model()时，你的model在使用默认的mongoose链接。我们一般都是用默认的链接，当然你可以自定义model对应的链接
