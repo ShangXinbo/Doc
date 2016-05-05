@@ -1,0 +1,30 @@
+
+安装在/usr/local/bin/下
+远端服务器下载mongodb太慢，我在windows本地下载好然后上传到服务器
+secureCrt要上传需要rz命令，下载需要sz命令，如果没有需要安装lrzsz，我在ubuntu上安装
+```
+apt-get install lrzsz
+```
+然后执行rz 命令上传文件，这样比较快
+上传完成后，解压
+```
+tar zxvf mongodb-linux-x86_64-ubuntu1404-3.2.6
+```
+将加压的文件夹重命名
+```
+mv mongodb-linux-x86_64-ubuntu1404-3.2.6 mongodb
+```
+将mongodb命令在解压目录的bin下，设置为全局环境变量
+```
+export PATH=/usr/local/bin/mongodb/bin:$PATH
+```
+手动创建数据库存放目录
+```
+mkdir data
+cd data
+mkdir db
+```
+启动mongodb服务
+```
+mongod --dbpath='/usr/local/bin/mongodb/data/bin'  这个参数如果不配置默认是/data/db
+```
