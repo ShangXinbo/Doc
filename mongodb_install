@@ -60,4 +60,5 @@ mongod --dbpath=/usr/local/lib/mongodb/data/db --auth --rest
 $MONGO["servers"][$i]["mongo_user"] = "xxxx";//mongo authentication user name, works only if mongo_auth=false
 $MONGO["servers"][$i]["mongo_pass"] = "xxxx";//mongo authentication password, works only if mongo_auth=false
 $MONGO["servers"][$i]["mongo_auth"] = true;//enable mongo authentication?
+$MONGO["servers"][$i]["control_users"]["xxxx"] = "xxxx";
 ```
