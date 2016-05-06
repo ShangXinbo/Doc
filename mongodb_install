@@ -1,30 +1,41 @@
-
-安装在/usr/local/bin/下
+mongodb 安装且开机运行服务
+下载mongodb
 远端服务器下载mongodb太慢，我在windows本地下载好然后上传到服务器
 secureCrt要上传需要rz命令，下载需要sz命令，如果没有需要安装lrzsz，我在ubuntu上安装
 ```
 apt-get install lrzsz
 ```
-然后执行rz 命令上传文件，这样比较快
-上传完成后，解压
+然后执行rz 命令上传文件，这样比较快,我们把程序解压在/usr/local/lib/下,然后在/usr/local/bin/下建立软连接，因为全局环境变量$PATH包含该目录
 ```
-tar zxvf mongodb-linux-x86_64-ubuntu1404-3.2.6
-```
-将加压的文件夹重命名
-```
-mv mongodb-linux-x86_64-ubuntu1404-3.2.6 mongodb
-```
-将mongodb命令在解压目录的bin下，设置为全局环境变量
-```
-export PATH=/usr/local/bin/mongodb/bin:$PATH 只在当前shell起作用
+#cd /usr/local/lib/
+#rz
+#tar zxvf mongodb-linux-x86_64-ubuntu1404-3.2.6
+#mv mongodb-linux-x86_64-ubuntu1404-3.2.6 mongodb
+#cd /usr/local/bin/
+#ln -s ../lib/mongodb/bin/mongod mongod
+#ln -s ../lib/mongodb/bin/mongo mongo
 ```
 手动创建数据库存放目录
 ```
-mkdir data
-cd data
-mkdir db
+#cd /usr/local/lib/mongodb/
+#mkdir data
+#cd data
+#mkdir db
 ```
-启动mongodb服务
+设置开机自启动mongodb服务，
 ```
-mongod --dbpath='/usr/local/bin/mongodb/data/bin'  这个参数如果不配置默认是/data/db
+# cd /etc/init.d/
+# vi rc.local 
+#! /bin/sh
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+
+. /lib/init/vars.sh
+. /lib/lsb/init-functions
+
+mongod --dbpath=/usr/local/lib/mongodb/data/db --rest
+…
 ```
+重启服务器即可完成
+```
+reboot
+````
