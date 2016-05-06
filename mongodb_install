@@ -39,3 +39,18 @@ mongod --dbpath=/usr/local/lib/mongodb/data/db --rest
 ```
 reboot
 ````
+
+配置mongodb的权限
+mongodb默认是没有区分管理权限的，不用账户登录即可链接数据库，这对于我的网站是非常危险的，这里设置一个超级管理并开启权限验证。
+```
+#mongo
+MongoDB shell version: 3.2.4
+connecting to: test
+> use admin
+switched to db admin
+> db.createUser({user:"xxx",pwd:"xxx",roles:[]})
+```
+然后重新编辑/etc/init.d/rc.local 让mongod服务启动时开启权限验证
+```
+mongod --dbpath=/usr/local/lib/mongodb/data/db --auth --rest
+```
