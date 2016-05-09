@@ -35,7 +35,7 @@ mongodb默认是没有安全验证的，不需要用户登录即可连接数据�
 #mongo
 MongoDB shell version: 3.2.4
 connecting to: test
-> use admin
+> use admin  //这里是这个账号的id，应该是这里有问题，为什么切换到这个数据库，和命令里的db有什么关系
 switched to db admin
 > db.createUser({user:"xxx",pwd:"xxx",roles:[{role:"root",db:"admin"}]})
 ```
@@ -43,7 +43,7 @@ switched to db admin
 ```
 mongod --dbpath=/usr/local/lib/mongodb/data/db --auth --rest
 ```
-用mongo_client链接时，需要指定数据库是admin，
+用mongo_client链接时，需要指定数据库是admin，这是为什么当时use admin的原因
 ```
 mongo -u xxxx --authenticationDatabase admin -p xxxx
 ```
@@ -54,3 +54,4 @@ $MONGO["servers"][$i]["mongo_user"] = "xxxx";//mongo authentication user name, w
 $MONGO["servers"][$i]["mongo_pass"] = "xxxx";//mongo authentication password, works only if mongo_auth=false
 $MONGO["servers"][$i]["mongo_auth"] = true;//enable mongo authentication?
 ```
+在程序里执行时，mongoose 链接要指定数据库，所以需要新建一个use yunda的账户，看程序理解。
