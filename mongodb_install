@@ -48,7 +48,7 @@ MongoDB shell version: 3.2.4
 connecting to: test
 > use admin
 switched to db admin
-> db.createUser({user:"xxx",pwd:"xxx",roles:[]})
+> db.createUser({user:"xxx",pwd:"xxx",roles:[{role:"root",db:"admin"}]})
 ```
 然后重新编辑/etc/init.d/rc.local 让mongod服务启动时开启权限验证
 ```
