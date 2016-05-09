@@ -19,4 +19,7 @@ root@iZ28wct1234Z:/usr/local/lib# apt-get install git
 root@iZ28wct1234Z:/usr/local/lib# git --version
 git version 1.9.1
 ```
-
+配置全局用户信息
+```
+git config --global --user.email "314911714@qq.com"
+git config --global --user.name "shangxinbo"
