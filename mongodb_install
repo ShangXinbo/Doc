@@ -54,7 +54,11 @@ switched to db admin
 ```
 mongod --dbpath=/usr/local/lib/mongodb/data/db --auth --rest
 ```
-如果用的是rokomongo管理数据库需要改配置文件config.php
+用mongo_client链接时，需要指定数据库是admin，
+```
+mongo -u xxxx --authenticationDatabase admin -p xxxx
+```
+如果用的是rokomongo管理数据库需要改配置文件config.php, 不能指定mongo_db的值
 ```
 //$MONGO["servers"][$i]["mongo_db"] = "";//default mongo db to connect, works only if mongo_auth=false
 $MONGO["servers"][$i]["mongo_user"] = "xxxx";//mongo authentication user name, works only if mongo_auth=false
