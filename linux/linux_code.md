@@ -1,3 +1,0 @@
-
-
-查看系统信息 cat /etc/issue
