@@ -1,11 +1,11 @@
-mongodb 安装且开机运行服务
-下载mongodb
-远端服务器下载mongodb太慢，我在windows本地下载好然后上传到服务器
-secureCrt要上传需要rz命令，下载需要sz命令，如果没有需要安装lrzsz，我在ubuntu上安装
+# mongodb 安装配置
+
+下载mongodb。远端服务器下载太慢，可在windows本地下载好然后上传到服务器
+使用secureCrt登陆linux上传下载需要rz/sz命令,一般系统需要安装lrzsz这个程序
 ```
 apt-get install lrzsz
 ```
-然后执行rz 命令上传文件，这样比较快,我们把程序解压在/usr/local/lib/下,然后在/usr/local/bin/下建立软连接，因为全局环境变量$PATH包含该目录
+执行rz 上传文件，我们把程序解压在/usr/local/lib/下,然后在/usr/local/bin/下建立软连接，因为全局环境变量$PATH包含该目录
 ```
 #cd /usr/local/lib/
 #rz
@@ -26,22 +26,11 @@ apt-get install lrzsz
 ```
 # cd /etc/init.d/
 # vi rc.local 
-#! /bin/sh
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
-
-. /lib/init/vars.sh
-. /lib/lsb/init-functions
 
 mongod --dbpath=/usr/local/lib/mongodb/data/db --rest
 …
 ```
-重启服务器即可完成
-```
-reboot
-````
-
-配置mongodb的权限
-mongodb默认是没有区分管理权限的，不用账户登录即可链接数据库，这对于我的网站是非常危险的，这里设置一个超级管理并开启权限验证。
+mongodb默认是没有安全验证的，不需要用户登录即可连接数据库，这对于我是不安全的，所以我需要配置mongodb的权限验证。
 ```
 #mongo
 MongoDB shell version: 3.2.4
