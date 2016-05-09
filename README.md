@@ -14,8 +14,9 @@
 
 * [nginx 启动脚本](https://github.com/ShangXinbo/Doc/blob/master/nginx/nginx.bat)
 * [nginx 服务器配置](https://github.com/ShangXinbo/Doc/blob/master/nginx/nginx.conf)
-
+* [rockmongo 安装](https://github.com/ShangXinbo/Doc/blob/master/nginx/rockmongo.md)
 ## node
 
 * [node ubuntu安装](https://github.com/ShangXinbo/Doc/blob/master/node/install.md)
 * [mongodb ubuntu安装](https://github.com/ShangXinbo/Doc/blob/master/node/mongodb_install.md)
+* [mongoose 使用](https://github.com/ShangXinbo/Doc/blob/master/node/mongoose.md)
