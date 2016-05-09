@@ -1,5 +1,5 @@
-安装
-ubuntu上安装用apt-get,但是会报错，看报错信息,我们选择升级apt-get
+## os Ubuntu
+### 首先我们选择升级apt-get，保证apt-get是最新，否则报错。
 ```
 root@iZ28wct1234Z:/usr/local/lib# apt-get install git
 ………………
@@ -19,7 +19,7 @@ root@iZ28wct1234Z:/usr/local/lib# apt-get install git
 root@iZ28wct1234Z:/usr/local/lib# git --version
 git version 1.9.1
 ```
-配置全局用户信息
+### 配置全局用户信息
 ```
-git config --global --user.email "314911714@qq.com"
-git config --global --user.name "shangxinbo"
+git config --global user.email "314911714@qq.com"
+git config --global user.name "shangxinbo"
