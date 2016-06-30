@@ -41,5 +41,7 @@ g++ (Ubuntu 4.8.2-19ubuntu1) 4.8.2
 # make
 # make install
 ```
+更改npm的库地址
+npm config set registry http://registry.cnpmjs.org
 
 
